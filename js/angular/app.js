@@ -673,7 +673,7 @@ define([
           , views: {
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/loginView.html'
+              templateUrl: 'js/angular/views/loginView.html'
               , controller: 'naviController'
             }
           }
@@ -685,7 +685,7 @@ define([
           , views: {
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
@@ -694,7 +694,7 @@ define([
 
               //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet','N',"FULL") //EIDT and ADD
               //template : 'this is test'
-              templateUrl: 'lib/angular/views/dashboardView.html'
+              templateUrl: 'js/angular/views/dashboardView.html'
 
               , controller: 'dashboardController'
             }
@@ -707,13 +707,13 @@ define([
           , views: {
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
             'pageSubContext@SchemaGenerator':
             {
-              templateUrl: 'lib/angular/views/SchemaGenerator.html'
+              templateUrl: 'js/angular/views/SchemaGenerator.html'
               , controller: 'SchemaGeneratorController'
             }
           }
@@ -730,7 +730,7 @@ define([
             {
 
               //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
@@ -763,7 +763,7 @@ define([
             {
 
               //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
 
             }
@@ -772,7 +772,7 @@ define([
             'pageSubContext@SchemaGeneratorView':
             {
 
-              templateUrl: 'lib/angular/views/SchemaGeneratorView.html'
+              templateUrl: 'js/angular/views/SchemaGeneratorView.html'
               , controller: 'SchemaGeneratorController'
               //template : 'this is test'
               // templateUrl : 'view/loginView.html'
@@ -789,7 +789,7 @@ define([
             {
 
               //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
 
             }
@@ -798,7 +798,7 @@ define([
             'pageSubContext@SchemaGenerator':
             {
 
-              templateUrl: 'lib/angular/views/SchemaGenerator.html'
+              templateUrl: 'js/angular/views/SchemaGenerator.html'
               , controller: 'SchemaGeneratorController'
               //template : 'this is test'
               // templateUrl : 'view/loginView.html'
@@ -816,7 +816,7 @@ define([
             {
 
               //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
 
             }
@@ -825,7 +825,7 @@ define([
             'pageSubContext@KeyBoard':
             {
 
-              templateUrl: 'lib/angular/views/keyBoard.html'
+              templateUrl: 'js/angular/views/keyBoard.html'
               , controller: 'keyBoardController'
               //template : 'this is test'
               // templateUrl : 'view/loginView.html'
@@ -841,7 +841,7 @@ define([
 
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
@@ -863,7 +863,7 @@ define([
           , views: {
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
@@ -886,7 +886,7 @@ define([
 
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
@@ -912,7 +912,7 @@ define([
 
             'pageMainContext':
             {
-              templateUrl: 'lib/angular/views/naviView.html'
+              templateUrl: 'js/angular/views/naviView.html'
               , controller: 'naviController'
             }
             ,
@@ -936,7 +936,7 @@ define([
             {
 
               //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'lib/angular/views/signupView.html'
+              templateUrl: 'js/angular/views/signupView.html'
               , controller: 'signupController'
             }
             ,
@@ -1032,7 +1032,7 @@ define([
               , views: {
                 'pageMainContext':
                 {
-                  templateUrl: 'lib/angular/views/naviView.html'
+                  templateUrl: 'js/angular/views/naviView.html'
                 }
                 ,
 
