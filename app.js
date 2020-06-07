@@ -22,6 +22,22 @@ app.post('/jsonSchema/:sjson', function (req, res) {
     }
 });    
 
+app.post('/api/dashboard/getUserDetail', function(req, res) {
+    res.send({});
+});
+
+app.post('/api/dashboard/getCardDetail', function(req, res) {
+    res.send({});
+
+});
+
+app.post('/service/loginDetails/doLogin', function(req, res) {
+    var respJson = {};
+    respJson.loginDetailsResponse={};
+    respJson.loginDetailsResponse.userDetails = {};
+    respJson.loginDetailsResponse.userDetails.firstName="Duraimurugan";
+    res.send(respJson);
+});
 
 app.use(express.static(__dirname + '/'));
 var server = app.listen(config.port, function () {
