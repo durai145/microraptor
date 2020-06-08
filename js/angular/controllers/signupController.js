@@ -2,7 +2,7 @@ define([],
 function()
 {
 
-	return [ '$scope' , 'toaster','signupService','$state',function($scope,toaster,signupService,$state){
+	return [ '$scope' , 'toaster','loginService','$state',function($scope,toaster,loginService,$state){
 
 
 
@@ -16,14 +16,7 @@ function()
       
        // alert((JSON.stringify($scope.$register));
         console.log($scope.$register);
-        //console.log($scope.$register.fName);
-        /**
-        email: "abijith@live.in"
-fName: "abinith"
-lName: "murugan"
-password: "1234"
-verify: "1212"
-        */
+      
 
         if($scope.$register != undefined)
         {
@@ -40,16 +33,16 @@ verify: "1212"
                 
                 $( "#verifyErrorBox" ).attr( 'class', "Error"  );
             }
-            signupService.register({     "grantType"     : "password" 
-              /*loginService.authorizeSSO({     "grantType"     : "password" */
-                          ,'clientId'    :'CLIENTSP'
-                          ,'scope'       : 'GSA'
-                        //  ,'username'    : $scope.email
-                         // ,'password'    : $scope.password
-                          ,'redirectURI' : 'http://localhost:5000/'
-                          ,'register'     : $scope.$register
-
-                          },function(resp)
+            loginService.register({
+              usr_id: $scope.$register.email,
+              role: "admin",
+              version: "001",
+              domain: "heaerieglobalsolutions.com",
+              password : $scope.$register.password,
+              first_name: $scope.$register.fName,
+              last_name: $scope.$register.lName,
+              portal: "Pillar"
+            },function(resp)
                           {
 
                                toaster.pop('success','this', JSON.stringify(resp));

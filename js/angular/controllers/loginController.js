@@ -12,23 +12,12 @@ function()
     $scope.uss_submit=function()
       {
           loginService.doLogin(
-            {
-              "grantType": "password",
-              "clientId": "CLIENTSP",
-              "scope": "GPA",
-              "data" :
-               { "loginDetailsRequest":{"userDetails":
-                {
-                  "username": $scope.email,
-                  "password" : $scope.password
-                }, 
-                "portalDetails":
-                    {
-                        "portalKey": $scope.portalKey
-                      }
-                  }
-              }
-            }
+            { usr_id: $scope.email,
+     role: 'admin',
+     version: '001',
+     domain: 'heaerieglobalsolutions.com',
+     password: $scope.password ,
+     portal: $scope.portalKey}
             ,function  (resp) {
           // body...
           console.log($state);
@@ -111,20 +100,30 @@ usrId: 1
 ]
             */
           
+            /*
+            { usr_id: 'durai',
+  version: '001',
+  portal: 'Pillar',
+  domain: 'heaerieglobalsolutions.com',
+  password: '1qaz2wsx',
+  first_name: 'durai',
+  last_name: 'murugan',
+  role: 'admin' }
+            */
 
             
-            $window.sessionStorage.setItem("firstName"  ,resp.loginDetailsResponse.userDetails.firstName);
-            $window.sessionStorage.setItem("grpName"    ,resp.loginDetailsResponse.userDetails.grpName);
-            $window.sessionStorage.setItem("firstName"  ,resp.loginDetailsResponse.userDetails.firstName);
-            $window.sessionStorage.setItem("lastName"   ,resp.loginDetailsResponse.userDetails.lastName);
-            $window.sessionStorage.setItem("prodVersion",resp.loginDetailsResponse.userDetails.prodVersion);
-            $window.sessionStorage.setItem("prtlName"   ,resp.loginDetailsResponse.userDetails.prtlName);
-            $window.sessionStorage.setItem("prodName"   ,resp.loginDetailsResponse.userDetails.prodName);
-            $window.sessionStorage.setItem("usrId"      ,resp.loginDetailsResponse.userDetails.usrId);
-            $window.sessionStorage.setItem("grpId"      ,resp.loginDetailsResponse.userDetails.grpId);
+
+            $window.sessionStorage.setItem("grpName"    ,resp.role);
+            $window.sessionStorage.setItem("firstName"  ,resp.first_name);
+            $window.sessionStorage.setItem("lastName"   ,resp.last_name);
+            $window.sessionStorage.setItem("prodVersion",resp.version);
+            $window.sessionStorage.setItem("prtlName"   ,resp.portal);
+            $window.sessionStorage.setItem("prodName"   ,"Pillar");
+            $window.sessionStorage.setItem("usrId"      ,resp.usr_id);
+            $window.sessionStorage.setItem("grpId"      ,resp.usr_id);
           
 
-
+            resp.entitlement={};
           $window.sessionStorage.setItem( "treeViewJson" ,JSON.stringify(resp.entitlement));
           
           $state.go('dashboard');

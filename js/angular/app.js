@@ -585,7 +585,7 @@ define([
 
       var result = $.ajax({
         type: "POST",
-        url: "/jsonSchema/" + jsonSchema + ".json",
+        url: "/jsonSchema/" + jsonSchema + ".sjson",
         cache: false,
         async: false
       }).responseText;
