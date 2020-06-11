@@ -99,13 +99,13 @@ app.post('/api/schema/:sjson', function (req, res) {
 
 
 
-app.post('/api/pillar/user/v2/login', function (req, res) {
+app.post('/pillar/api/user/v2/login', function (req, res) {
     addCoreFunction(req, function (req) {
         var respJson = {};
         headerObj = { "X-AUTH-JWT" : req.getHeader('X-AUTH-JWT')};
         var options = {
             method: 'POST',
-            uri: 'http://192.168.1.59:8080/pillar/user/v2/login',
+            uri: 'http://192.168.1.59:8080/pillar/api/user/v2/login',
             json: true,
             body: {
                 "usr_id": req.getParam("usr_id"),
@@ -130,7 +130,7 @@ app.post('/api/pillar/user/v2/login', function (req, res) {
 });
 
 
-app.post('/api/pillar/user/v2/register', function (req, res) {
+app.post('/pillar/api/user/v2/register', function (req, res) {
     
     addCoreFunction(req, function (req) {
         console.log(req.getParam("usr_id"));
@@ -138,7 +138,7 @@ app.post('/api/pillar/user/v2/register', function (req, res) {
         headerObj = { "X-AUTH-JWT" : req.getHeader('X-AUTH-JWT')};
         var options = {
             method: 'POST',
-            uri: 'http://192.168.1.59:8080/pillar/user/v2/register',
+            uri: 'http://192.168.1.59:8080/pillar/api/user/v2/register',
             json: true,
             // body: {
             //     "usr_id": req.getParam("usr_id"),
