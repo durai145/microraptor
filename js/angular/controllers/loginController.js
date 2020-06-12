@@ -22,10 +22,6 @@ function()
           // body...
           console.log($state);
           console.log(JSON.stringify(resp, null, 4));
-            
-
-
-
 
           var states = $state.get();
             var itemsToBeRemoved = [];
@@ -53,11 +49,7 @@ function()
                     }
                   //  alert('Bofore' + states[i].name);
                     $state.remove(states[i].name);
-                   // alert('Removed' +states[i].name);
-
-
-                   // delete states[i];
-                    //itemsToBeRemoved[removalIndex++] = i;
+               
                 }
             }
            /* for(var j=0;j<itemsToBeRemoved.length;j++){
@@ -123,7 +115,7 @@ usrId: 1
             $window.sessionStorage.setItem("grpId"      ,resp.usr_id);
           
 
-            resp.entitlement={};
+            resp.entitlement=resp.entitlement||{};
           $window.sessionStorage.setItem( "treeViewJson" ,JSON.stringify(resp.entitlement));
           
           $state.go('dashboard');

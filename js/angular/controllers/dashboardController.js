@@ -245,8 +245,8 @@ var ussScript=us.frameGeneration(inpUsListVal
          $scope.$watch('$viewContentLoaded', function(){
     //Here your view content is fully loaded !!
    // 2 alert('on viewContentLoaded watch');
-    $scope.getUserDetail();
-    $scope.getCardDetail();
+   // $scope.getUserDetail();
+    // $scope.getCardDetail();
   });
 
          /* $scope.$on('$viewChangeSuccess', function(){
