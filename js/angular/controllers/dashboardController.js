@@ -52,10 +52,11 @@ define([],function() {
 
     subjectBold.appendChild(textSujectNode);
     var textMessageNode = document.createTextNode(messageShort);
-
+    var breakNode  =document.createElement("br");
     subjectLabel.setAttribute("class", "ctext");
 
     subjectLabel.appendChild(subjectBold);
+    subjectLabel.appendChild(breakNode);
     subjectLabel.appendChild(textMessageNode);
 
     column.appendChild(subjectLabel);
@@ -63,12 +64,35 @@ define([],function() {
     }
 
 
+    function getFirstLetters(from){
+
+      var new_str = from.split(' '),
+        i,
+        arr = from[0].toUpperCase();
+    for (i = 1; i < new_str.length && i < 2; i++) {
+      if(new_str.length == 3) {
+        arr +=new_str[i][0].toUpperCase();
+      }
+    }
+    return arr;
+    }
+
+    function createDataLetter(id, from) {
+      var column =createTableColumn();
+      // 	<i class="fa fa-star" aria-hidden="true"></i>
+      column.setAttribute("class", "col-md-4 col-sm-2 col-xs-2");
+      var fromP=document.createElement("p");
+      fromP.setAttribute("data-letters", getFirstLetters(from));
+      column.appendChild(fromP);
+      return column;
+    }
+
     function createFrom(id, from) {
 
 
       var column =createTableColumn();
       // 	<i class="fa fa-star" aria-hidden="true"></i>
-      column.setAttribute("class", "col-md-2 col-sm-2 col-xs-2");
+      column.setAttribute("class", "col-md-4 col-sm-2 col-xs-2");
       var fromLabel=document.createElement("label");
       fromLabel.setAttribute("class", "ctext");
       var fromTextNode = document.createTextNode(from);
@@ -101,8 +125,9 @@ define([],function() {
           
                         $scope.mails = resp;
                        
-
-                      var MailId = document.getElementById("MailId");
+                        $scope.receivedItem=$scope.mails.length;
+                      var MailId = document.getElementById("MailViewId");
+                      MailId.innerHTML = "";
                       $scope.mails.forEach(function(mail) {
                         var table1Row= createTableRow();
                         var table1Row1Colum1 = createTableColumn();
@@ -112,6 +137,8 @@ define([],function() {
 
                         var checkBox=createCheckBox("id1Check");
                         var starFlag=createStartFlag("id1Star", true);
+                        var dataLetter=createDataLetter("id1From", mail.request.from_list[0]);
+
                         var from = createFrom("id1From", mail.request.from_list[0]);
                         var subject = createSubject("id1Star", mail.request.subject, mail.request.short_body);
                         var recived  = createReceived("idReceived", mail.request.dt_created);
@@ -121,9 +148,11 @@ define([],function() {
 
                         table2Row.appendChild(starFlag);
                         table2Row.appendChild(checkBox);
+                        table2Row.appendChild(dataLetter);
 
                         table3Row.appendChild(from);
                         table3Row.appendChild(subject);
+                        //table3Row.appendChild(recived);
 
                         table1Row1Colum2.appendChild(table3Row);
                         table1Row1Colum1.appendChild(table2Row);
