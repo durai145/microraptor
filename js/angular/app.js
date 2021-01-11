@@ -993,7 +993,7 @@ define([
               return $q.resolve(response);
             }
             , response: function (response) {
-              var accessToken = response.headers('x-access-token');
+              var accessToken = response.headers('x-auth-jwt');
               if (angular.isDefined(accessToken)) {
                 if (accessToken != null) {
                   $window.sessionStorage.accessToken = accessToken;
@@ -1003,7 +1003,7 @@ define([
             },
             request: function (request) {
 
-              request.headers['x-access-token'] = $window.sessionStorage.accessToken || '';
+              request.headers['x-auth-jwt'] = $window.sessionStorage.accessToken || '';
 
               return request;
             }

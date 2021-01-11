@@ -1,13 +1,166 @@
 
+<style>
+.ctext {
+	font-size: 14px;
+}
+
+</style>
 
 
 
 
+<div id="dialog-form" title="Transation Details" style="width: 100%; min-height: 0px; height: 80%;" >
 
-<div id="dialog-form" title="Transation Details" style="width: 80%; min-height: 0px; height: 80%;" >
 
-	<div id="UserTxnDtl">
-	</div>
+	<div class="row tableRow " >
+		<div id="td" class="col-md-3 col-sm-2 col-xs-2">
+			<div>
+					<div id="root" class="TreeContainer" onclick="treeNodeOnclick('inbox')">
+						<a class="inactive">inbox</a>
+					</div>
+					<div class="TreeNodeDiv">
+						<div id="inbox" class="TreeNode dashboard" style="display: block;">
+							<a class="inactive" href="#/dashboard/">
+								<i class="fa fa-level-up fa-rotate-90" aria-hidden="true"></i>
+								<span class="TreeNodeText">Received Item </span>
+								<span class="TreeNodeTextCount">(10) demo</span>
+							</a>
+						</div>
+						<div id="inbox" class="TreeNode dashboard" style="display: block;">
+							<a class="inactive" href="#/sendMessage/">
+								<i class="fa fa-level-up fa-rotate-90" aria-hidden="true"></i>
+								<span class="TreeNodeText">Send Item</span>
+								<span class="TreeNodeTextCount">(2) demo</span>
+								
+							</a>
+						</div>
+						<div id="inbox" class="TreeNode dashboard" style="display: block;">
+							<a class="inactive" href="#/SchemaGenerator/">
+								<i class="fa fa-level-up fa-rotate-90" aria-hidden="true"></i>
+									<span class="TreeNodeText">Draft</span>
+									<span class="TreeNodeTextCount">(1) Demo</span>
+							</a>
+						</div>
+						<div id="inbox" class="TreeNode dashboard" style="display: block;">
+							<a class="inactive" href="#/inbox/">
+								<i class="fa fa-level-up fa-rotate-90" aria-hidden="true"></i>
+								<span class="TreeNodeText">Deleted Item</span>
+								<span class="TreeNodeTextCount">(4) Demo</span>
+							</a>
+						</div>
+						<div id="inbox" class="TreeNode dashboard" style="display: block;">
+							<a class="inactive" href="#/inbox/">
+								<i class="fa fa-level-up fa-rotate-90" aria-hidden="true"></i>
+								<span class="TreeNodeText">Spam </span>
+								<span class="TreeNodeTextCount">(3) Demo</span>
+							</a>
+						</div>
+					</div>
+					<div id="root" class="TreeContainer" onclick="treeNodeOnclick('folder')">
+						<a class="inactive">Folder</a>
+					</div>
+					<div class="TreeNodeDiv">
+						<div id="inbox" class="TreeNode dashboard" style="display: block;">
+							<a class="inactive" href="#/dashboard/">
+								<i class="fa fa-level-up fa-rotate-90" aria-hidden="true"></i>
+								<span class="TreeNodeText">Flaged Item</span>
+								<span class="TreeNodeTextCount">(4)</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="td" class="col-md-9 col-sm-2 col-xs-2">
+				<!--div class="pageLayout ng-scope"--> 
+					<div class="bcontainer">
+						<div id="" class="bheader" tabindex="-1">
+							<div class="row tableRow " style="margin-left: 0px;margin-right: 0px;" tabindex="-1">
+											<div class="clearfix visible-xs"></div>
+											<div class="clearfix visible-sm"></div>
+											<div class="clearfix visible-md"></div>
+							
+										<div id="td" class="col-md-2 col-sm-2 col-xs-2">
+										<div class="binboxheader">
+											<div id="sendMessageErrorBox"></div>
+												<i class="fa fa-plus" aria-hidden="true"></i> 
+												<span class="TreeNodeText">New </span>
+											</div>
+										</div>
+										<div id="td" class="col-md-2 col-sm-2 col-xs-2">
+										<div class="binboxheader">
+											<div id="sendMessageErrorBox"></div>
+												<i class="fa fa-reply" aria-hidden="true"></i> 
+												<span class="TreeNodeText">Reply </span>
+											</div>
+										</div>
+										<div id="td" class="col-md-2 col-sm-2 col-xs-2">
+										<div class="binboxheader">
+										<div id="sendMessageErrorBox"></div>
+											<i class="fa fa-trash-o" aria-hidden="true"></i>
+											<span class="TreeNodeText">Delete </span>
+										</div>
+										</div>
+										<div id="td" class="col-md-2 col-sm-2 col-xs-2">
+											<div class="binboxheader">
+											<div id="sendMessageErrorBox"></div>
+											<i class="fa fa-archive" aria-hidden="true"></i>
+											<span class="TreeNodeText">Archive </span>
+										</div>
+										</div>
+							</div>
+						</div>
+						
+						<div id="row tableRow" class="bsession" tabindex="-1">	
+								<div class="clearfix visible-xs"></div>
+									<div class="clearfix visible-sm"></div>
+									<div class="clearfix visible-md"></div>
+									
+								<div class="row tableRow">
+								</div>
+								
+								<!--div class="row tableRow">
+									<div class="clearfix visible-xs"></div>
+									<div class="clearfix visible-sm"></div>
+									<div class="clearfix visible-md"></div>
+									
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<div  class="row tableRow">
+											<div  class="col-md-3 col-sm-2 col-xs-2">
+												<input type="checkbox">
+											</div>
+											<div  class="col-md-3 col-sm-2 col-xs-2">
+												<i class="fa fa-star-o" aria-hidden="true"></i>
+											</div>	
+											<div  class="col-md-3 col-sm-2 col-xs-2">
+											<i class="fa fa-exclamation" aria-hidden="true"></i>
+											</div>
+											
+											<div  class="col-md-3 col-sm-2 col-xs-2">
+												<i class="fa fa-paperclip" aria-hidden="true"></i>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<label class="clabel"> Duraimurugan Govindaraj </label>
+									</div>
+									<div class="col-md-6 col-sm-2 col-xs-2">
+										
+										<b> Test Mail</b> : <i> This is test</i>
+
+									</div>
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										2 min
+									</div>
+								</!--div-->
+								<div id="MailId">
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				<!--/div-->
+			</div>
+
 </div>
 
 
@@ -16,12 +169,9 @@
 
 <div class="pageLayout">
 
-
-
-
-	
-		<div id="getUserDetailView"><img src="../img/load.gif"> </img></div>
 		<div id="getCardDetailView"><img src="../img/load.gif"> </img></div>
+
+		
 
 	<form>
 			<button class="bheaderButton btn" id="getUserDetail" ng-click="getUserDetail()"> <i class="fa fa-refresh"> </i>getUserDetail</button>

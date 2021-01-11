@@ -12,6 +12,7 @@
 		"jsonwebtoken": "^8.1.0",
 		"nconf": "^0.9.1",
 		"node-json-db": "^1.0.1",
+		"pcsclite": "^1.0.0",
 		"request": "^2.83.0",
 		"request-ip": "^2.0.2",
 		"useragent": "^2.2.1",
