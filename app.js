@@ -219,6 +219,50 @@ app.get('/pillar/api/v2/mail/', function (req, res) {
     });
 
 });
+
+
+app.get('/pillar/api/v3/mail/', function (req, res) {
+    
+    addCoreFunction(req, function (req) {
+        console.log(req.getParam("usr_id"));
+        var respJson = {};
+        headerObj = { "x-auth-jwt" : req.getHeader('x-auth-jwt')};
+        var options = {
+            method: 'GET',
+            uri: 'https://heaerieglobalsolutions.com/pillar/api/v3/mail/',
+            json: true,
+            // body: {
+            //     "usr_id": req.getParam("usr_id"),
+            //     "role": req.getParam("role"),
+            //     "version": req.getParam("version"),
+            //     "domain": "heaerieglobalsolutions.com",
+            //     "password": req.getParam("password")
+
+            // },
+            body: {
+                "usr_id": req.getParam("usr_id"),
+                "role":req.getParam("role"),
+                "version": "001",
+                "domain" : "heaerieglobalsolutions.com",
+                "password" : req.getParam("password"),
+                "first_name": req.getParam("first_name"),
+                "last_name": req.getParam("last_name"),
+                "portal": "Pillar"
+            },
+            headers: headerObj
+        };
+        console.log(options);
+        request(options).then(function (resp) {
+            console.log(resp.body);
+            res.setHeader('x-auth-jwt',resp.headers['x-auth-jwt']);
+            res.send(resp.body);
+        }).catch(function (err) {
+            console.log(err);
+            res.send(err);
+        });
+    });
+
+});
 app.use(express.static(__dirname + '/'));
 var server = app.listen(config.port, function () {
     console.log('Listening on port %d', server.address().port);

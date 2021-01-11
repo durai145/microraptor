@@ -13,7 +13,7 @@ function()
       {
           loginService.doLogin(
             { usr_id: $scope.email,
-     role: 'admin',
+     role: $scope.role,
      version: '001',
      domain: 'heaerieglobalsolutions.com',
      password: $scope.password ,
