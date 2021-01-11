@@ -116,6 +116,77 @@ usrId: 1
           
 
             resp.entitlement=resp.entitlement||{};
+            resp.entitlement = [
+              {
+                'link': 'dashboard'
+                , 'linkName': 'Home'
+                , 'uid': 'dashboard'
+                , 'dataType': 'CONTAINER'
+                , 'child': [{
+                  'link': 'dashboard'
+                  , 'linkName': 'Dashboard'
+                  , 'uid': 'dashboard2'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                }
+                  ,
+                {
+                  'link': 'basicDetUSSAdd'
+                  , 'linkName': 'Basic Details'
+                  , 'uid': 'basicDetUSSAdd'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                }
+                ]
+              }, {
+                'link': 'group'
+                , 'linkName': 'Group Service'
+                , 'uid': 'groupservice'
+                , 'dataType': 'CONTAINER'
+                , 'child': [{
+                  'link': 'groupUSSView'
+                  , 'linkName': 'Group'
+                  , 'uid': 'group'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                }, {
+                  'link': 'rollUSSView'
+                  , 'linkName': 'Roll Details'
+                  , 'uid': 'SchemaGenerator'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                }
+                ]
+              }, {
+                'link': 'admin'
+                , 'linkName': 'Admin Service'
+                , 'uid': 'admin'
+                , 'dataType': 'CONTAINER'
+                , 'child': [{
+                  'link': 'SchemaGenerator'
+                  , 'linkName': 'Schema Generator'
+                  , 'uid': 'SchemaGenerator'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                }
+                  ,
+                {
+                  'link': 'SchemaGeneratorView'
+                  , 'linkName': 'Schema Generator View'
+                  , 'uid': 'SchemaGenerator'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                },
+                {
+                  'link': 'KeyBoard'
+                  , 'linkName': 'Documents'
+                  , 'uid': 'KeyBoard'
+                  , 'dataType': 'NODE'
+                  , 'child': []
+                }
+                ]
+              }
+            ];
           $window.sessionStorage.setItem( "treeViewJson" ,JSON.stringify(resp.entitlement));
           
           $state.go('dashboard');

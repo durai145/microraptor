@@ -1,24 +1,4 @@
-/**
- * loads sub modules and wraps them up into the main module
- * this should be used for top-level module definitions only
- */
-define([
-  './controllers/index'
-  , './services/index'
-
-], function (controllers, services) {
-  'use strict';
-
-  var webApp = angular.module('app', [
-    'controllers'
-    , 'ngRoute'
-    , 'toaster'
-    , 'services'
-    , 'ui.router'
-    , 'ngAnimate'
-  ]);
-
-  webApp.provider('heaerieUssService', function heaerieUssServiceProvider() {
+var tlv= function heaerieUssServiceProvider() {
     var GenHtmlTemplateFromSJson = false;
 
     this.getDataType = function (tag) {
@@ -451,7 +431,7 @@ define([
       return bytes;
     }
 
-    this.doTvl = function (val) {
+    this.doTlv = function (val) {
       var retVal = val;
       var inpStrArr = this.stringToByteArray(val);
       var respJson = [];
@@ -652,420 +632,52 @@ define([
       // accept and use the GenHtmlTemplateFromSJson argument
       return new heaerieUssService(apiToken, GenHtmlTemplateFromSJson);
     }];
-  });
 
-  /*
-  webApp.config(["heaerieUssServiceProvider", function(heaerieUssServiceProvider) {
-    heaerieUssServiceProvider.GenHtmlTemplateFromSJson(true);
-    console.log('heaerieUssServiceProvider.GenHtmlTemplateFromSJson');
-    console.log(heaerieUssServiceProvider.GenHtmlTemplateFromSJson);
-  }]);
-  
-  */
-  webApp.config(['$routeProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', 'heaerieUssServiceProvider', '$injector'
-    , function ($routeProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, heaerieUssServiceProvider, $injector
-    ) {
+  };
 
-      //alert(heaerieUssServiceProvider.GenHtmlTemplateFromSJson('Y'));
-      $stateProvider.state('login',
+
+encodeSchemaToTvl=function(schemaJson)
+{
+
+  var Tag="";
+  var Value="";
+  var valueHex="";
+
+  var rtStr="";
+
+
+  var Len=0;
+  for(var i=0; i< schemaJson.length; i++)
+  {
+
+//$scope.getTag
+   for( key in schemaJson[i])
+    {
+        if ( key == "childs")
         {
-          url: '/www/'
-          , views: {
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/loginView.html'
-              , controller: 'naviController'
-            }
-          }
-        });
+          if(schemaJson[i].childs.length !=0)
+          {
+          var value1=$scope.encodeSchemaToTvl(schemaJson[i].childs);
+          //rtStr += "E1" +  intToHexString(value1.length/2) + value1;
+          rtStr +=  value1;
 
-      $stateProvider.state('dashboard',
-        {
-          url: '/dashboard/'
-          , views: {
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-            'pageSubContext@dashboard':
-            {
-
-              //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet','N',"FULL") //EIDT and ADD
-              //template : 'this is test'
-              templateUrl: 'js/angular/views/dashboardView.html'
-
-              , controller: 'dashboardController'
-            }
-          }
-        });
-
-      $stateProvider.state('SchemaGenerator',
-        {
-          url: '/SchemaGenerator/'
-          , views: {
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-            'pageSubContext@SchemaGenerator':
-            {
-              templateUrl: 'js/angular/views/SchemaGenerator.html'
-              , controller: 'SchemaGeneratorController'
-            }
-          }
-        });
-
-      //basicDet/USSAdd
-
-      $stateProvider.state('basicDetUSSAdd',
-        {
-          url: '/basicDetUSSAdd/'
-          , views: {
-
-            'pageMainContext':
-            {
-
-              //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-
-            'pageSubContext@basicDetUSSAdd':
-            {
-
-              template: heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet', 'Y', 'ADD')
-              , controller: 'basicDetController'
-              //template : 'this is test'
-              // templateUrl : 'view/loginView.html'
-            }
-          }
-          , params: {
-            $basicDet: {}
-          }
-
-        });
-
-
-      //basicDetUSSSave
-
-
-      $stateProvider.state('SchemaGeneratorView',
-        {
-          url: '/SchemaGeneratorView/'
-          , views: {
-
-            'pageMainContext':
-            {
-
-              //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-
-            }
-            ,
-
-            'pageSubContext@SchemaGeneratorView':
-            {
-
-              templateUrl: 'js/angular/views/SchemaGeneratorView.html'
-              , controller: 'SchemaGeneratorController'
-              //template : 'this is test'
-              // templateUrl : 'view/loginView.html'
-            }
-          }
-        });
-
-      $stateProvider.state('SchemaGenerator',
-        {
-          url: '/SchemaGenerator/'
-          , views: {
-
-            'pageMainContext':
-            {
-
-              //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-
-            }
-            ,
-
-            'pageSubContext@SchemaGenerator':
-            {
-
-              templateUrl: 'js/angular/views/SchemaGenerator.html'
-              , controller: 'SchemaGeneratorController'
-              //template : 'this is test'
-              // templateUrl : 'view/loginView.html'
-            }
 
           }
         }
-      );
-      $stateProvider.state('KeyBoard',
+        else
         {
-          url: '/KeyBoard/'
-          , views: {
+          Tag       =$scope.getTag(key);
+          Value     =schemaJson[i][key];
+          valueHex  =$scope.stringToHexStr(Value);
+          Len       =valueHex.length/2;
+          tagLen    = $scope.intToHexString(Len);
 
-            'pageMainContext':
-            {
-
-              //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-
-            }
-            ,
-
-            'pageSubContext@KeyBoard':
-            {
-
-              templateUrl: 'js/angular/views/keyBoard.html'
-              , controller: 'keyBoardController'
-              //template : 'this is test'
-              // templateUrl : 'view/loginView.html'
-            }
-          }
-        });
-
-
-      $stateProvider.state('basicDetUSSSave',
-        {
-          url: '/basicDetUSSSave/'
-          , views: {
-
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-
-            'pageSubContext@basicDetUSSSave':
-            {
-              template: heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet', 'Y', 'SAVE')
-              , controller: 'basicDetController'
-            }
-          }
-          , params: {
-            $basicDet: {}
-          }
-        });
-
-      $stateProvider.state('basicDetUSSNew',
-        {
-          url: '/basicDetUSSNew/'
-          , views: {
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-            'pageSubContext@basicDetUSSNew':
-            {
-
-              template: heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet', 'Y', 'NEW')
-              , controller: 'basicDetController'
-            }
-          }
-          , params: {
-            $basicDet: {}
-          }
-        });
-
-      $stateProvider.state('basicDetUSSView',
-        {
-          url: '/basicDetUSSView/'
-          , views: {
-
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-
-            'pageSubContext@basicDetUSSView':
-            {
-
-              template: heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet', 'N', "FULL")
-              , controller: 'basicDetController'
-            }
-          }
-          , params: {
-            $basicDet: {}
-          }
-        });
-
-
-
-      $stateProvider.state('basicDetUSSEdit',
-        {
-          url: '/basicDetUSSEdit/'
-          , views: {
-
-            'pageMainContext':
-            {
-              templateUrl: 'js/angular/views/naviView.html'
-              , controller: 'naviController'
-            }
-            ,
-
-            'pageSubContext@basicDetUSSEdit':
-            {
-              template: heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet', 'Y', 'SAVE')
-              , controller: 'basicDetController'//template : 'this is test'
-            }
-          }
-          , params: {
-            $basicDet: {}
-          }
-        });
-
-      $stateProvider.state('signup',
-        {
-          url: '/signup/'
-          , views: {
-            'pageMainContext':
-            {
-
-              //template : heaerieUssServiceProvider.GenHtmlTemplateFromSJson('N')
-              templateUrl: 'js/angular/views/signupView.html'
-              , controller: 'signupController'
-            }
-            ,
-
-            'pageSubContext@signup':
-            {
-              template: "<center> <div style='width:600px'>" + heaerieUssServiceProvider.GenHtmlTemplateFromSJson('signup', 'Y', "REGISTER|BACK") + "</div> </center>"
-              , controller: 'signupController'
-            }
-          }
-        });
-
-      $urlRouterProvider.otherwise(function ($injector, $location) {
-        var $state = $injector.get('$state');
-
-        $state.go('login', {
-          title: "Page not found",
-          message: 'Could not find a state associated with url "' + $location.$$url + '"'
-        });
-      });
-
-      $httpProvider.interceptors.push(['$q', '$injector', 'toaster', '$window'//,'uss' 
-        , function ($q, $injector, toaster, $window//,uss
-        ) {
-          var sessionRecoverer = {
-            responseError: function (response) {
-              // session expired 
-              if (response.status == 302) {
-                $window.sessionStorage.clear();
-                var $http = $injector.get('$http');
-                var deferred = $q.defer();
-                toaster.pop('error', 'this', 'session is expired');
-                $injector.get('$state').go('login');
-
-                return deferred.promise.then(function () {
-                  return $http(response.config);
-                });
-
-              } else if (response.status == 304) {
-                $window.sessionStorage.clear();
-                var $http = $injector.get('$http');
-                var deferred = $q.defer();
-                toaster.pop('error', 'Error:', 'Invalid User Id / Password');
-                $injector.get('$state').go('login');
-
-                return deferred.promise.then(function () {
-                  return $http(response.config);
-                });
-              } else if (response.status == 404) {
-                toaster.pop('error', '404', 'Request services is not avaliable for You');
-                $injector.get('$state').go('login');
-                return $http(response.config);
-              }
-              return $q.resolve(response);
-            }
-            , response: function (response) {
-              var accessToken = response.headers('x-auth-jwt');
-              if (angular.isDefined(accessToken)) {
-                if (accessToken != null) {
-                  $window.sessionStorage.accessToken = accessToken;
-                }
-              }
-              return response;
-            },
-            request: function (request) {
-
-              request.headers['x-auth-jwt'] = $window.sessionStorage.accessToken || '';
-
-              return request;
-            }
-          };
-          return sessionRecoverer;
-        }]);
-    }]);
-
-  webApp.provider('$dashboardState', function ($stateProvider, heaerieUssServiceProvider) {
-    this.$get = function ($state) {
-      return {
-        /**
-         * @function app.dashboard.dashboardStateProvider.addState
-         * @memberof app.dashboard
-         * @param {string} title - the title used to build state, url & find template
-         * @param {string} controllerAs - the controller to be used, if false, we don't add a controller (ie. 'UserController as user')
-         * @param {string} templatePrefix - either 'content', 'presentation' or null
-         * @author Alex Boisselle
-         * @description adds states to the dashboards state provider dynamically
-         * @returns {object} user - token and id of user
-         */
-        addState: function (title, controllerAs, templatePrefix) {
-          $stateProvider.state('basicDetUSSNavi',
-            {
-              url: '/basicDetUSSNavi'
-              , views: {
-                'pageMainContext':
-                {
-                  templateUrl: 'js/angular/views/naviView.html'
-                }
-                ,
-
-                'pageSubContext@basicDetUSSNavi':
-                {
-
-                  template: heaerieUssServiceProvider.GenHtmlTemplateFromSJson('basicDet', 'Y', 'SAVE')
-                  , controller: 'basicDetController'//template : 'this is test'
-                }
-              }
-            });
+          rtStr += Tag + tagLen + valueHex;
+        
         }
-      }
     }
-  });
+    
+  }
 
-  webApp.run(['$rootScope', '$q', '$injector', '$window', function ($rootScope, $q, $injector, $window) {
-    $rootScope.goUrl = function (stateToGo) {
-
-      if (stateToGo == 'registerUSSBack') {
-
-        $injector.get('$state').go('login');
-      }
-      else if (stateToGo == 'logout') {
-
-        $window.sessionStorage.clear();
-        $injector.get('$state').go('login');
-      }
-      else {
-        $injector.get('$state').go(stateToGo);
-      }
-    }
-  }]);
-
-  return webApp;
-});
+return  "E1" +intToHexString(rtStr.length/2) + rtStr;
+}
