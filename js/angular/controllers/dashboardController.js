@@ -14,13 +14,13 @@ define([],function() {
 
     function createTableColumn() {
       var  table1Row=document.createElement("div");
-      table1Row.setAttribute("class", "col-md-2 col-sm-2 col-xs-2");
+      table1Row.setAttribute("class", "col-md-2 col-sm-12 col-xs-12");
       return table1Row;
     }
 
     function createCheckBox(id) {
        var column =createTableColumn();
-       column.setAttribute("class", "col-md-3 col-sm-2 col-xs-2");
+       column.setAttribute("class", "col-md-3 col-sm-4 col-xs-12");
        var checkBox=document.createElement("input");
        checkBox.setAttribute("type", "checkbox");
        column.appendChild(checkBox);
@@ -31,7 +31,7 @@ define([],function() {
     function createStartFlag(id, value) {
       var column =createTableColumn();
       // 	<i class="fa fa-star" aria-hidden="true"></i>
-       column.setAttribute("class", "col-md-2 col-sm-2 col-xs-2");
+       column.setAttribute("class", "col-md-2 col-sm-12 col-xs-12");
        var checkStar=document.createElement("i");
        checkStar.setAttribute("aria-hidden", value);
        column.appendChild(checkStar);
@@ -45,19 +45,26 @@ define([],function() {
 
     var column =createTableColumn();
     // 	<i class="fa fa-star" aria-hidden="true"></i>
-    column.setAttribute("class", "col-md-10 col-sm-2 col-xs-2");
+    column.setAttribute("class", "col-md-10 col-sm-12 col-xs-12");
     var subjectLabel=document.createElement("label");
     var subjectBold=document.createElement("b");
     var textSujectNode = document.createTextNode(subject);
 
     subjectBold.appendChild(textSujectNode);
-    var textMessageNode = document.createTextNode(messageShort);
+    // var textMessageNode = document.createTextNode(messageShort);
     var breakNode  =document.createElement("br");
     subjectLabel.setAttribute("class", "ctext");
 
+// messageBody
+    var messageBodyNode = document.createElement("div");
+   
+    messageBodyNode.innerHTML = messageShort;
+
     subjectLabel.appendChild(subjectBold);
     subjectLabel.appendChild(breakNode);
-    subjectLabel.appendChild(textMessageNode);
+    //subjectLabel.appendChild(textMessageNode);
+    subjectLabel.appendChild(messageBodyNode);
+    
 
     column.appendChild(subjectLabel);
     return column;
@@ -80,7 +87,7 @@ define([],function() {
     function createDataLetter(id, from) {
       var column =createTableColumn();
       // 	<i class="fa fa-star" aria-hidden="true"></i>
-      column.setAttribute("class", "col-md-4 col-sm-2 col-xs-2");
+      column.setAttribute("class", "col-md-4 col-sm-12 col-xs-12");
       var fromP=document.createElement("p");
       fromP.setAttribute("data-letters", getFirstLetters(from));
       column.appendChild(fromP);
@@ -92,7 +99,7 @@ define([],function() {
 
       var column =createTableColumn();
       // 	<i class="fa fa-star" aria-hidden="true"></i>
-      column.setAttribute("class", "col-md-4 col-sm-2 col-xs-2");
+      column.setAttribute("class", "col-md-4 col-sm-12 col-xs-12");
       var fromLabel=document.createElement("label");
       fromLabel.setAttribute("class", "ctext");
       var fromTextNode = document.createTextNode(from);
@@ -104,7 +111,7 @@ define([],function() {
 
       function createReceived(id, receivedDate) {
         var column =createTableColumn();
-        column.setAttribute("class", "col-md-2 col-sm-2 col-xs-2");
+        column.setAttribute("class", "col-md-2 col-sm-12 col-xs-12");
         var receivedDateLabel=document.createElement("label");
         receivedDateLabel.setAttribute("class", "ctext");
         var receivedDateNode = document.createTextNode(receivedDate);
@@ -144,7 +151,7 @@ define([],function() {
                         var recived  = createReceived("idReceived", mail.request.dt_created);
 
 
-                        table1Row1Colum2.setAttribute("class", "col-md-10 col-sm-2 col-xs-2");
+                        table1Row1Colum2.setAttribute("class", "col-md-9 col-sm-12 col-xs-12");
 
                         table2Row.appendChild(starFlag);
                         table2Row.appendChild(checkBox);
