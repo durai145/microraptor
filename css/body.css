@@ -2,11 +2,11 @@
 
 
 	FONT-WEIGHT: bold; 
-	FONT-SIZE: 14pt; 
-	COLOR: #caff70; 
+	FONT-SIZE: 10pt; 
+	COLOR: #ffffff; 
 	FONT-STYLE: normal; 
 	FONT-FAMILY: arial, helvetica, sans-serif;
-	 BACKGROUND-COLOR: #4D7F17; 
+	 BACKGROUND-COLOR: #8e4c1a ;
 	 TEXT-ALIGN: center;
 	 
 	 padding: 4px 1px 1px 1px;
@@ -35,11 +35,11 @@ box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
 
 
 	FONT-WEIGHT: bold; 
-	FONT-SIZE: 14pt; 
-	COLOR: #caff70; 
+	FONT-SIZE: 10pt; 
+	COLOR: #f2c983 ;
 	FONT-STYLE: normal; 
 	FONT-FAMILY: arial, helvetica, sans-serif;
-	 BACKGROUND-COLOR: #4D7F17; 
+	 BACKGROUND-COLOR:  #8e4c1a; 
 	 TEXT-ALIGN: center;
 	 
 	 padding: 1px 1px 1px 1px;
@@ -65,7 +65,7 @@ box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
 .bsession{
 	FONT-WEIGHT: bold; 
 	FONT-SIZE: 14pt; 
-	COLOR: #104e8b; 
+	COLOR: #f2c983;
 	FONT-STYLE: normal; 
 	FONT-FAMILY: arial, helvetica, sans-serif;
 	 BACKGROUND-COLOR: #f4f4f4; 
@@ -77,7 +77,7 @@ box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
     margin-bottom: -1px;
     margin-right: -1px;
     margin-left: -1px;
-
+	border: 1px solid #b8b8b8;
 	
 }
 
@@ -175,8 +175,8 @@ box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
     margin-bottom: -1px;
     margin-right: -1px;
     margin-left: -1px;
-
-	background-color:  #104e8b;
+	COLOR: #ffffff;
+	background-color:  #8e4c1a;
     text-align: left;
     max-height: 50px;
     height: 50px;
@@ -273,6 +273,7 @@ box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
 
 	margin-left:0px;
 	margin-right:0px;
+	padding: 10px 0px 10px 0px;
     
 
 }
@@ -317,7 +318,7 @@ box-shadow: 2px 4px 5px 0px rgba(194,170,194,1);
 cursor: pointer;
 }
 
-.TreeContainer:hover{
+.TreeContainer:hover {
 margin: 5px 5px 25px 15px;
 	height: 40px;
 	padding: 10px 20px;

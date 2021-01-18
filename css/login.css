@@ -261,9 +261,11 @@ box-shadow: inset -3px 2px 132px 51px rgba(255,255,255,1);
   {
     max-height: 520px;
     max-width: 320px;
-    border: 1px solid red;
+    border: 1px solid#774419;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0.9;
+    background-color: aliceblue;
 
 
   }
