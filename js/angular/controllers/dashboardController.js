@@ -9,6 +9,14 @@ define([],function() {
     function createTableRow() {
       var  table1Row=document.createElement("div");
       table1Row.setAttribute("class", "row tableRow");
+      table1Row.setAttribute("style", "	margin-left:0px;margin-right:0px;");
+      return table1Row;
+    }
+
+    function createRow() {
+      var  table1Row=document.createElement("div");
+      table1Row.setAttribute("class", "row");
+      table1Row.setAttribute("style", "	margin-left:0px;margin-right:0px;");
       return table1Row;
     }
 
@@ -99,15 +107,45 @@ define([],function() {
 
       var column =createTableColumn();
       // 	<i class="fa fa-star" aria-hidden="true"></i>
-      column.setAttribute("class", "col-md-4 col-sm-12 col-xs-12");
+      /**
+       * <div class="col-md-3 col-sm-12 col-xs-12">
+											<i class="far fa-trash-alt"></i>
+												<i class="far fa-envelope-open"></i>
+												<i class="far fa-envelope"></i>
+												<i class="far fa-flag"></i>
+										</div>
+       */
+      column.setAttribute("class", "col-md-9 col-sm-12 col-xs-12");
       var fromLabel=document.createElement("label");
       fromLabel.setAttribute("class", "ctext");
       var fromTextNode = document.createTextNode(from);
       fromLabel.appendChild(fromTextNode);
+
+
       column.appendChild(fromLabel);
+  
+
+
       return column;
       }
 
+      function createFromFlag(id, openFlg, deleteFlg) {
+        var openFlag=document.createElement("i");
+        openFlag.setAttribute("class", "far fa-envelope-open");
+
+        var deleteFlag=document.createElement("i");
+        deleteFlag.setAttribute("class", "far fa-trash-alt");
+
+
+        var column2 =createTableColumn();
+        column2.setAttribute("class", "col-md-3 col-sm-12 col-xs-12");
+        column2.appendChild(openFlag);
+        column2.appendChild(deleteFlag);
+        
+
+      return column2;
+
+      }
 
       function createReceived(id, receivedDate) {
         var column =createTableColumn();
@@ -139,25 +177,25 @@ define([],function() {
                         var table1Row= createTableRow();
                         var table1Row1Colum1 = createTableColumn();
                         var table1Row1Colum2 = createTableColumn();
-                        var  table2Row=createTableRow();
-                        var  table3Row=createTableRow();
+                        var  table2Row=createRow();
+                        var  table3Row=createRow();
 
                         var checkBox=createCheckBox("id1Check");
                         var starFlag=createStartFlag("id1Star", true);
                         var dataLetter=createDataLetter("id1From", mail.request.from_list[0]);
 
                         var from = createFrom("id1From", mail.request.from_list[0]);
-                        var subject = createSubject("id1Star", mail.request.subject, mail.request.short_body);
+                        var subject = createSubject("id1Star", mail.request.subject, mail.request.short_body, mail.request.short_body );
                         var recived  = createReceived("idReceived", mail.request.dt_created);
 
 
                         table1Row1Colum2.setAttribute("class", "col-md-9 col-sm-12 col-xs-12");
-
-                        table2Row.appendChild(starFlag);
                         table2Row.appendChild(checkBox);
+                        table2Row.appendChild(starFlag);
                         table2Row.appendChild(dataLetter);
 
                         table3Row.appendChild(from);
+                        table3Row.appendChild(createFromFlag("id3", true, true));
                         table3Row.appendChild(subject);
                         //table3Row.appendChild(recived);
 

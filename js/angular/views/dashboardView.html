@@ -1,8 +1,5 @@
 
 <style>
-.ctext {
-	font-size: 14px;
-}
 
 
 [data-letters]:before {
@@ -19,11 +16,18 @@
   margin-right:1em;
   color:white;
   }
+
 </style>
-
-
-
-
+<style>
+	.hide1 {
+	  display: none;
+	}
+		
+	.id1:hover + .hide1 {
+	  display: block;
+	  color: red;
+	}
+</style>
 
 
 
@@ -94,34 +98,34 @@
 				<div id="td" class="col-md-9 col-sm-12 col-xs-12">
 					<!--div class="pageLayout ng-scope"--> 
 						<div class="bcontainer">
-							<div id="" class="bheader" tabindex="-1">
-								<div class="row tableRow " style="margin-left: 0px;margin-right: 0px;" tabindex="-1">
+							<div id="" class="bheader ">
+								<div class="row tableRow " style="margin-left: 0px;margin-right: 0px;" >
 												<div class="clearfix visible-xs"></div>
 												<div class="clearfix visible-sm"></div>
 												<div class="clearfix visible-md"></div>
 								
-											<div id="td" class="col-md-2 col-sm-12 col-xs-12">
+											<div id="td" class="col-md-3 col-sm-3 col-xs-3">
 											<div class="binboxheader">
 												<div id="sendMessageErrorBox"></div>
 													<i class="fa fa-plus" aria-hidden="true"></i> 
 													<span class="TreeNodeText">New </span>
 												</div>
 											</div>
-											<div id="td" class="col-md-2 col-sm-12 col-xs-12">
+											<div id="td" class="col-md-3 col-sm-3 col-xs-3">
 											<div class="binboxheader">
 												<div id="sendMessageErrorBox"></div>
 													<i class="fa fa-reply" aria-hidden="true"></i> 
 													<span class="TreeNodeText">Reply </span>
 												</div>
 											</div>
-											<div id="td" class="col-md-2 col-sm-12 col-xs-12">
+											<div id="td" class="col-md-3 col-sm-3 col-xs-3">
 											<div class="binboxheader">
 											<div id="sendMessageErrorBox"></div>
 												<i class="fa fa-trash-o" aria-hidden="true"></i>
 												<span class="TreeNodeText">Delete </span>
 											</div>
 											</div>
-											<div id="td" class="col-md-2 col-sm-12 col-xs-12">
+											<div id="td" class="col-md-3 col-sm-3 col-xs-3">
 												<div class="binboxheader">
 												<div id="sendMessageErrorBox"></div>
 												<i class="fa fa-archive" aria-hidden="true"></i>
@@ -131,65 +135,73 @@
 								</div>
 							</div>
 							
-							<div id="row tableRow" class="bsession" tabindex="-1">	
-									<div class="clearfix visible-xs"></div>
-										<div class="clearfix visible-sm"></div>
-										<div class="clearfix visible-md"></div>
-										
-									<div class="row tableRow">
-									</div>
+							<div id="row tableRow" class="bsession">
 									
-									<!--div class="row tableRow">
-										<div class="clearfix visible-xs"></div>
-										<div class="clearfix visible-sm"></div>
-										<div class="clearfix visible-md"></div>
-										
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<div  class="row tableRow">
-												<div  class="col-md-3 col-sm-2 col-xs-2">
-													<input type="checkbox">
-												</div>
-												<div  class="col-md-3 col-sm-2 col-xs-2">
-													<i class="fa fa-star-o" aria-hidden="true"></i>
-												</div>	
-												<div  class="col-md-3 col-sm-2 col-xs-2">
-												<i class="fa fa-exclamation" aria-hidden="true"></i>
-												</div>
-												
-												<div  class="col-md-3 col-sm-2 col-xs-2">
-													<i class="fa fa-paperclip" aria-hidden="true"></i>
-												</div>
-											</div>
-											<div class="col-md-4 col-sm-2 col-xs-2">
-												<p data-letters="MN"></p>or whatever structure you used>
-											</div>
-										</div>
-									
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<label class="clabel"> Duraimurugan Govindaraj </label>
-										</div>
-										<div class="col-md-6 col-sm-2 col-xs-2">
-											
-											<b> Test Mail</b> : <i> This is test</i>
-	
-										</div>
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											2 min
-										</div>
-									</div-->
-								
-	
+								<div class="row tableRow" >
 									<div id="MailViewId"><img src="../img/load.gif"> </img></div>
 								</div>
-								
+								<!--div class="row tableRow" >
+									<div-- class="col-md-2 col-sm-12 col-xs-12">
+										<div class="row" style="	margin-left:0px;margin-right:0px;">
+											<div class="col-md-1 col-sm-4 col-xs-12" id="id1Check">
+												<input type="checkbox">
+											</div>
+										<div class="col-md-1 col-sm-12 col-xs-12" id="id1Star"><i aria-hidden="true"></i>
+										</div><div class="col-md-3 col-sm-12 col-xs-12"><p data-letters="DG"></p></div>
+									</div>
+								</div-->
+								<!--div class="col-md-10 col-sm-12 col-xs-12">
+									<div class="col-md-9 col-sm-12 col-xs-12">
+											<label class="ctext">Duraimurugan Govindaraj &lt;durai145@gmail.com&gt;</label>
+										</div>
+										<div class="col-md-3 col-sm-12 col-xs-12">
+											<i class="far fa-trash-alt"></i>
+												<i class="far fa-envelope-open"></i>
+												<i class="far fa-envelope"></i>
+												<i class="far fa-flag"></i>
+										</div>
+										<div class="col-md-9 col-sm-12 col-xs-12">
+										<label class="ctext">
+												<b>Reமுதல் தமிழ் அஞ்சல்</b>
+										</label>
+										</div>
+										<div class="col-md-3 col-sm-12 col-xs-12">
+											<i class="fas fa-link"></i>
+											<i class="fas fa-external-link-alt"></i>
+										</div>
+										<div class="col-md-9 col-sm-12 col-xs-12">
+												<div>
+													<div dir="ltr">சோதனை&nbsp;1</div><br>
+													<div class="gmail_quote">
+														<div dir="ltr" class="gmail_attr">On Mon, Jan 11, 2021 at 11:27 PM Duraimurugan Govindaraj &lt;<a href="mailto:durai145@gmail.com">durai145@gmail.com</a>&gt; wrote:<br></div><blockquote class="gmail_quote" style="margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir="ltr"><br clear="all"><div>வணக்கம்</div><div><br></div><div>துரைமுருகன்</div>
+													</div>
+													</blockquote>
+													</div>
+													<br clear="all">
+													<div>
+													<br>
+												</div>
+													-- <br>
+											<div dir="ltr" class="gmail_signature">G Duraimurugan</div>
+											
+											</div>
+										</label>
+									</div>
+									
+								</div-->
+
 							</div>
+							
 						</div>
-					<!--/div-->
+						
+
 				</div>
 	
 	</div>
 	
 		
+
+
 
 		
 
