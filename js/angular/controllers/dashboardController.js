@@ -47,6 +47,24 @@ define([],function() {
        return column;
     }
 
+    function createHasAttachment(id, value) {
+      var column =createTableColumn();
+      // <i class="fas fa-paperclip"></i>
+      // 	<i class="fa fa-star" aria-hidden="true"></i>
+       column.setAttribute("class", "col-md-2 col-sm-12 col-xs-12");
+       var checkStar=document.createElement("i");
+       
+       if (value == true) {
+        checkStar.setAttribute("class","fas fa-paperclip");
+        checkStar.setAttribute("aria-hidden", true);
+       } else {
+        checkStar.setAttribute("aria-hidden", false);
+       }
+       column.appendChild(checkStar);
+       column.setAttribute("id", id);
+       return column;
+    }
+
 
     function createSubject(id, subject, messageShort) {
 
@@ -129,18 +147,24 @@ define([],function() {
       return column;
       }
 
-      function createFromFlag(id, openFlg, deleteFlg) {
+      function createFromFlag(id, openFlg, deleteFlg, hasAttachmentFlg) {
         var openFlag=document.createElement("i");
-        openFlag.setAttribute("class", "far fa-envelope-open");
+        if (openFlg) {
+          openFlag.setAttribute("class", "far fa-envelope-open");
+        }
 
         var deleteFlag=document.createElement("i");
-        deleteFlag.setAttribute("class", "far fa-trash-alt");
-
+        if (deleteFlg) {
+          deleteFlag.setAttribute("class", "far fa-trash-alt");
+        }
+        var hasAttachment=createHasAttachment("id1HasAttachment", hasAttachmentFlg);
+                        
 
         var column2 =createTableColumn();
         column2.setAttribute("class", "col-md-3 col-sm-12 col-xs-12");
         column2.appendChild(openFlag);
         column2.appendChild(deleteFlag);
+        column2.appendChild(hasAttachment);
         
 
       return column2;
@@ -192,10 +216,11 @@ define([],function() {
                         table1Row1Colum2.setAttribute("class", "col-md-9 col-sm-12 col-xs-12");
                         table2Row.appendChild(checkBox);
                         table2Row.appendChild(starFlag);
+                        //table2Row.appendChild(hasAttachment);
                         table2Row.appendChild(dataLetter);
 
                         table3Row.appendChild(from);
-                        table3Row.appendChild(createFromFlag("id3", true, true));
+                        table3Row.appendChild(createFromFlag("id3", mail.request.is_new_mail, mail.request.is_flag,mail.request.has_attachment));
                         table3Row.appendChild(subject);
                         //table3Row.appendChild(recived);
 
