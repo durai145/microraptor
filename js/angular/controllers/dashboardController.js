@@ -31,6 +31,7 @@ define([],function() {
        column.setAttribute("class", "col-md-3 col-sm-4 col-xs-12");
        var checkBox=document.createElement("input");
        checkBox.setAttribute("type", "checkbox");
+       checkBox.setAttribute("class", "checkbox-round");
        column.appendChild(checkBox);
        column.setAttribute("id", id);
        return column;
@@ -55,9 +56,11 @@ define([],function() {
        var checkStar=document.createElement("i");
        
        if (value == true) {
-        checkStar.setAttribute("class","fas fa-paperclip");
+        checkStar.setAttribute("class","fas fa-paperclip found");
         checkStar.setAttribute("aria-hidden", true);
        } else {
+       checkStar.setAttribute("class","fas fa-paperclip notfound");
+
         checkStar.setAttribute("aria-hidden", false);
        }
        column.appendChild(checkStar);
@@ -150,12 +153,16 @@ define([],function() {
       function createFromFlag(id, openFlg, deleteFlg, hasAttachmentFlg) {
         var openFlag=document.createElement("i");
         if (openFlg) {
-          openFlag.setAttribute("class", "far fa-envelope-open");
+          openFlag.setAttribute("class", "far fa-envelope-open found");
+        } else {
+          openFlag.setAttribute("class", "far fa-envelope-open notfound");
         }
 
         var deleteFlag=document.createElement("i");
         if (deleteFlg) {
-          deleteFlag.setAttribute("class", "far fa-trash-alt");
+            deleteFlag.setAttribute("class", "far fa-trash-alt found");
+        } else {
+            deleteFlag.setAttribute("class", "far fa-trash-alt notfound" );
         }
         var hasAttachment=createHasAttachment("id1HasAttachment", hasAttachmentFlg);
                         
@@ -171,6 +178,18 @@ define([],function() {
 
       }
 
+      function setFlagedItem(mails) {
+        $scope.flagedItem=0;
+        $scope.hasAttachmentItem=0;
+        $scope.mails.forEach(function(mail) {
+          if (mail.request.is_flag) {
+            flagedItem++;
+          }
+          if (mail.request.has_attachment) {
+            $scope.hasAttachmentItem++;
+          }
+        });
+      }
       function createReceived(id, receivedDate) {
         var column =createTableColumn();
         column.setAttribute("class", "col-md-2 col-sm-12 col-xs-12");
@@ -183,7 +202,7 @@ define([],function() {
       }
       
 
-    $scope.getCardDetail=function() {
+    $scope.getMailDetail=function() {
           dashboardService.mail({ 'grantType' : 'password' 
                       ,'clientId' :'CLIENTSP'
                       ,'scope' : 'GSA'
@@ -195,9 +214,11 @@ define([],function() {
                         $scope.mails = resp;
                        
                         $scope.receivedItem=$scope.mails.length;
+                        setFlagedItem($scope.mails)
                       var MailId = document.getElementById("MailViewId");
                       MailId.innerHTML = "";
                       $scope.mails.forEach(function(mail) {
+                        mail.request.is_flag
                         var table1Row= createTableRow();
                         var table1Row1Colum1 = createTableColumn();
                         var table1Row1Colum2 = createTableColumn();
@@ -280,7 +301,7 @@ define([],function() {
       //Here your view content is fully loaded !!
      // 2 alert('on viewContentLoaded watch');
       // $scope.getUserDetail();
-      $scope.getCardDetail();
+      $scope.getMailDetail();
     });
   }];
 });

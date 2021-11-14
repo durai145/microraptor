@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="19181d46-d612-4ea3-82e7-9ebe4cecda30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/angular/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.package.json.swp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/angular/controllers/dashboardController.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/controllers/dashboardController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/angular/controllers/loginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/controllers/loginController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/angular/services/dashboardService.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/services/dashboardService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/angular/views/dashboardView.html" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/views/dashboardView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/angular/views/loginView.html" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/views/loginView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/angular/views/naviView.html" beforeDir="false" afterPath="$PROJECT_DIR$/js/angular/views/naviView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
